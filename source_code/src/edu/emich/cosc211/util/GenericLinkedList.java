@@ -1,13 +1,19 @@
 package edu.emich.cosc211.util;
 
 public class GenericLinkedList<T> {
+	/**
+	 * Inner class to track individual data nodes.
+	 * 
+	 * @author eddie gurnee
+	 *
+	 */
 	private class GenericLinkedListNode {
 		T data;
 		GenericLinkedListNode next;
 
-		public GenericLinkedListNode(T data, GenericLinkedListNode next) {
+		public GenericLinkedListNode(T data) {
 			this.data = data;
-			this.next = next;
+			this.next = null;
 		}
 	}
 
@@ -21,7 +27,7 @@ public class GenericLinkedList<T> {
 
 	public boolean add(T elem) {
 		if (null == head) {
-			this.head = new GenericLinkedListNode(elem, null);
+			this.head = new GenericLinkedListNode(elem);
 		} else {
 			GenericLinkedListNode node = head;
 
@@ -29,7 +35,7 @@ public class GenericLinkedList<T> {
 			while (node.next != null) {
 				node = node.next;
 			}
-			node.next = new GenericLinkedListNode(elem, null);
+			node.next = new GenericLinkedListNode(elem);
 		}
 		size++;
 		return true;
@@ -39,6 +45,12 @@ public class GenericLinkedList<T> {
 		return this.size;
 	}
 
+	/**
+	 * Returns the specific element at a requested index.
+	 * 
+	 * @param index
+	 * @return
+	 */
 	public T get(int index) {
 		GenericLinkedListNode node = head;
 		for (int i = 0; i < index; i++) {
@@ -47,4 +59,13 @@ public class GenericLinkedList<T> {
 		return node.data;
 	}
 
+	//TODO: clear
+	//TODO: add(int index, T element)
+	//TODO: contains(T element)
+	//TODO: indexOf(T element)
+	//TODO: isEmpty()
+	//TODO: remove(int index)
+	//TODO: remove(T element)
+	//TODO: set(int index, T element)
+	//TODO: size()
 }

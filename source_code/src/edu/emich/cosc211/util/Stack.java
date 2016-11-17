@@ -41,6 +41,10 @@ public interface Stack<E> {
 	 */
 	boolean isEmpty();
 	
+	/**
+	 * Removes all items from the stack.
+	 * 
+	 */
 	void clear();
 
 }
